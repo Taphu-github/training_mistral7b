@@ -4,7 +4,7 @@ from transformers import AutoTokenizer
 import torch
 tokenizer = AutoTokenizer.from_pretrained("Taphu/chatbot_mistral7b")
 
-inputs = tokenizer("### Question: How many divisions are there in GovTech", return_tensors="pt").to("cuda")
+inputs = tokenizer("### Question: Question I want to ask", return_tensors="pt").to("cuda")
 
 model = AutoPeftModelForCausalLM.from_pretrained(
     "Taphu/chatbot_mistral7b",
