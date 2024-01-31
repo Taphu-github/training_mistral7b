@@ -78,7 +78,7 @@ def formatting_prompts_func(x):
 import transformers
 from datetime import datetime
 import bitsandbytes as bnb
-project = "govtech-finetune-withLinux"
+project = "finetune-withLinux"
 base_model_name = "mistral"
 run_name = base_model_name + "-" + project
 output_dir = "./" + run_name
@@ -132,7 +132,7 @@ eval_tokenizer = AutoTokenizer.from_pretrained(base_model_id, add_bos_token=True
 
 from peft import PeftModel
 
-ft_model = PeftModel.from_pretrained(base_model, "mistral-govtech-finetune-withLinux/checkpoint-500")
+ft_model = PeftModel.from_pretrained(base_model, "mistral-finetune-withLinux/checkpoint-500")
 
 eval_prompt = "### Question : List the divisions of GovTech Agency of Bhutan?"
 model_input = eval_tokenizer(eval_prompt, return_tensors="pt").to("cuda")
